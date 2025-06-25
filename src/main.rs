@@ -1,8 +1,19 @@
 fn main() {
+    let s = String::from("hello");
+
+    takes_ownership(s);
+    // 불가능
+    // println!("{s}");
+    
     let x = 5;
-    let y = x;
+    makes_copy(x);
+    println!("{x}");
+}
 
-    println!("x = {}, y = {}", x, y);
+fn takes_ownership(some_string: String) {
+    println!("{some_string}");
+}
 
-
+fn makes_copy(some_integer: i32) {
+    println!("{some_integer}");
 }
