@@ -14,3 +14,11 @@ fn main() {
 
     println!("You guessed: {guess}"); // {} : placeholder
 }
+// crate: rust code 파일들의 모음
+// binary crate: 
+// `rand` crate: Cargo.toml의 [dependencies] 에 rand 추가
+// 예) rand = "0.8.5"
+// Semantic Versioning: 0.8.5 이상, 0.9.0 아래의 모든 버전. ^0.8.5의 축약형
+
+// cargo build 시,
+// rand 가 동작하기 위한 다른 crate들도 가져옴을 알 수 있음
