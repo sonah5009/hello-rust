@@ -1,8 +1,13 @@
 fn main() {
-    let y = {
-        let x = 3;
-        x + 1 // return value
-    };
-    // 결과값 4
-    println!("The value of y is: {y}");
+    let number = 3;
+
+    // 불가능 expected `bool`
+    // bool이 아니라서
+    // if number {
+    //     println!("number was something other than zero");
+    // }
+
+    if number != 0 {
+        println!("number was something other than zero");
+    }
 }
