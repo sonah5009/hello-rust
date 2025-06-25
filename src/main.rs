@@ -1,5 +1,7 @@
 fn main() {
-    let mut s = String::from("hello");
-    s.push_str("_bye");
-    println!("{}", s);
+    let s1 = String::from("hello");
+    // s1이 s2로 move
+    let s2 = s1;
+
+    // println!("{}, world!", s1);
 }
