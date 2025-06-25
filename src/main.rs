@@ -1,9 +1,8 @@
 fn main() {
-    println!("Hello, world!");
-
-    another_function();
-}
-
-fn another_function() {
-    println!("Another function.");
+    let y = {
+        let x = 3;
+        x + 1 // return value
+    };
+    // 결과값 4
+    println!("The value of y is: {y}");
 }
