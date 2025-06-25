@@ -10,6 +10,7 @@ fn main() {
 
     println!("The secrete number is: {secrete_number}");
 
+    loop {
     println!("Please input your guess.");
 
     let mut guess = String::new();
@@ -18,17 +19,17 @@ fn main() {
         .read_line(&mut guess)
         .expect("Failed to read line");
 
-    // shadow: 값 덮어쓰기
-    // trim 메서드: 처음과 끝부분의 공백문자들을 제거. `5\n` -> `5`
-    // parse 메서드: 문자열 -> 숫자로 변경
-    // expect 메서드: parse 실패 시 Result Err 반환 시
-    let guess: u32 = guess.trim().parse().expect("Please type a number!");
-    
-    println!("You guessed: {guess}"); // {} : placeholder
-
-    match guess.cmp(&secrete_number) {
-        Ordering::Less => println!("Too small!"),
-        Ordering::Greater => println!("Too big!"),
-        Ordering::Equal => println!("You win!"),
+        let guess: u32 = guess.trim().parse().expect("Please type a number!");
+        
+        println!("You guessed: {guess}"); // {} : placeholder
+        
+        match guess.cmp(&secrete_number) {
+            Ordering::Less => println!("Too small!"),
+            Ordering::Greater => println!("Too big!"),
+            Ordering::Equal => {
+                println!("You win!");
+                break;
+            },
+        }
     }
 }
