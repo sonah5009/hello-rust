@@ -1,11 +1,12 @@
 fn main() {
-    let spaces = "   ";
-    println!("{spaces}");
+    let tup: (i32, f64, u8) = (500, 6.4, 1);
 
-    let spaces = spaces.len();
-    println!("{spaces}");
+    // let (x,y,z) = tup;
 
-    // 변수의 타입 변경 불가능. let 없이. 문자열 타입, 숫자 타입이었음
-    // spaces = spaces.len();
-    // println!("{spaces}");
+    let five_hundred = tup.0;
+    let six_point_four = tup.1;
+
+    let one = tup.2;
+
+    println!("{five_hundred}, {six_point_four}, {one}");
 }
