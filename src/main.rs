@@ -1,19 +1,24 @@
 fn main() {
-    let s = String::from("hello");
+    // yours
+    let s1 = gives_ownership();
 
-    takes_ownership(s);
-    // 불가능
-    // println!("{s}");
-    
-    let x = 5;
-    makes_copy(x);
-    println!("{x}");
+    let s2 = String::from("hello");
+    let s3 = takes_and_gives_back(s2);
+
+    println!("{}", s1);
+    // println!("{}", s2);
+    // s2의 소유권이 s3으로 이동
+    println!("{}", s3);
+
+
 }
 
-fn takes_ownership(some_string: String) {
-    println!("{some_string}");
+fn gives_ownership() -> String {
+    let some_string = String::from("yours");
+
+    some_string
 }
 
-fn makes_copy(some_integer: i32) {
-    println!("{some_integer}");
+fn takes_and_gives_back(a_string: String) -> String {
+    a_string
 }
