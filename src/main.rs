@@ -1,19 +1,12 @@
 fn main() {
+    // case 1: mutable reference 여러 개 -> 중괄호로 새로운 스코프 생성
     let mut s = String::from("hello");
 
-    let r1 = &mut s;
-    // let r2 = &mut s;
+    {
+        let r1 = &mut s;
+    } // 여기서 r1이 스코프 밖으로 벗어나며, 따라서 아무 문제없이 새 참조자를 만들 수 있습니다.
 
-    // println!("{}, {}", r1, r2);
-    println!("{}", r1);
+    let r2 = &mut s;
 
 
 }
-
-fn change(some_string: &mut String){
-    // mutable reference
-    // 가변 참조자 생성
-    some_string.push_str(", world");
-    // 제약조건: 하나의 값에 대한 가변 참조자는 딱 하나만 생성 가능. 만약 2개면 작동 불가
-}
-
