@@ -1,8 +1,11 @@
 fn main() {
     // dangling pointer
-    let mut s = String::from("hello world");
-    let word = first_word(&s);
-    s.clear();  // String을 비워서 ""으로 만듦
+    let s = String::from("hello world");
+    
+    let hello = &s[0..5];
+    let world = &s[6..11];
+    // 0 1 2 3 4 5 6 7 8 9 10
+    // h e l l o   w o r l d
 }
 
 fn first_word(s: &String) -> usize {
