@@ -1,18 +1,19 @@
 fn main() {
-    let s1 = String::from("hello");
+    let mut s = String::from("hello");
 
-    let len = calculate_length(&s1); // 소유권을 넘기지 않고 해당값을 참조할 수 있도록 함
+    let r1 = &mut s;
+    // let r2 = &mut s;
 
-    println!("The length of '{}' is {}.", s1, len);
+    // println!("{}, {}", r1, r2);
+    println!("{}", r1);
+
 
 }
 
-fn change(some_string: &String){
+fn change(some_string: &mut String){
+    // mutable reference
+    // 가변 참조자 생성
     some_string.push_str(", world");
-    // some_string은 borrow하는 참조자이므로 소유권이 없음. 즉, 수정 불가능
-}
-
-fn calculate_length(s: &String) -> usize {
-    s.len()
+    // 제약조건: 하나의 값에 대한 가변 참조자는 딱 하나만 생성 가능. 만약 2개면 작동 불가
 }
 
