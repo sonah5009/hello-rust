@@ -1,16 +1,13 @@
 fn main() {
-    let s = String::from("hello word");
-
-    let word = first_word(&s);
-
-    // s.clear(); // &mut String -- mutable reference 요구
-    // immutable reference 인 word가 있으므로, word 가 살아 있는 동안 mutable reference 생성 불가
-    // 컴파일 에러
-
-    println!("first word: {}", word);
-
+    // 슬라이스로써의 문자열 리터럴
+    // String Literals as Slices
+    let s = "Hello, world!";
+    // s는 binary의 특정 지점을 가리키는 slice
+    // data type: &'static str
+    // &str 타입이므로 immutable reference. <- 문자열 리터럴 변경 불가의 이유
 }
 
+// String Slices as Parameters
 fn first_word(s: &String) -> &str {
     let bytes = s.as_bytes();
     // index, 해당 요소의 reference
