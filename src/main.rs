@@ -1,26 +1,13 @@
 fn main() {
-    // case 2: mutable, immutable reference 혼용 
-    // -> (immutable reference) r1, r2의 사용 종료 후, 
-    // (mutable reference) r3 생성
-    // 즉, 서로의 scope가 겹치지 않게 함
-
-    // let mut s = String::from("hello");
-
-    // let r1 = &s; // 문제없음
-    // let r2 = &s; // 문제없음
-    // let r3 = &mut s; // 큰 문제
-
-    // println!("{}, {}, and {}", r1, r2, r3);
-
-    let mut s = String::from("hello");
-
-    let r1 = &s; // 문제없음
-    let r2 = &s; // 문제없음
-    println!("{} and {}", r1, r2);
-    // 이 지점 이후로 변수 r1과 r2는 사용되지 않습니다
-
-    let r3 = &mut s; // 문제없음
-    println!("{}", r3);
-
-
+    // dangling pointer
+    let reference_to_nothing = dangle();
 }
+
+fn dangle() -> &String { // String의 참조자를 반환하겠다고 함
+    let s = String::from("hello");
+    // this function's return type contains a borrowed value, but there is no value for it to be borrowed from
+    // 이 함수는 빌린 값을 반환하고 있으나, 빌린 실제 값이 존재하지 않는다.
+
+    &s // String s의 참조자를 반환
+} // 여기서 s는 스코프 밖으로 벗어나고 버려짐. 해당 메모리 해제.
+// 위험
