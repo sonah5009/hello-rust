@@ -4,6 +4,8 @@ fn main() {
     
     let hello = &s[0..5];
     let world = &s[6..11];
+    // [starting_index..ending_index]
+    // ending_index에서 1을 뺀 위치까지 슬라이스 생성
     // 0 1 2 3 4 5 6 7 8 9 10
     // h e l l o   w o r l d
 }
