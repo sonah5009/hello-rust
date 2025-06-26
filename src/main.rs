@@ -7,6 +7,11 @@ fn main() {
 
 }
 
+fn change(some_string: &String){
+    some_string.push_str(", world");
+    // some_string은 borrow하는 참조자이므로 소유권이 없음. 즉, 수정 불가능
+}
+
 fn calculate_length(s: &String) -> usize {
     s.len()
 }
